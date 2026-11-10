@@ -588,3 +588,20 @@ body>.ph-wrap{max-width:1080px;margin-left:auto;margin-right:auto;box-shadow:0 0
 /* .where – plakietki 3D jak przyciski */
 .where span{background:linear-gradient(#ffffff,#e6efe8);color:var(--green);border:1px solid #d5ddd7;border-bottom:4px solid #b9c6bc;border-radius:8px;box-shadow:0 5px 10px rgba(0,0,0,.12),inset 0 2px 0 #fff;text-shadow:0 1px 0 #fff}
 .foot-menu{border-bottom:none}
+/* ===== Ekran powitalny z logo 3D (jak na stronie podnośnika, raz na wizytę) ===== */
+html.splash body{filter:blur(18px);overflow:hidden}
+html.splash-out body{filter:blur(0);transition:filter 1s ease}
+html.splash::before{content:"";position:fixed;inset:0;background:rgba(255,255,255,.9);z-index:9998;transition:opacity .7s ease}
+html.splash::after{content:"";position:fixed;left:50%;top:50%;width:min(62vw,340px);height:min(62vw,340px);
+  background:url(logo-3d.webp) center/contain no-repeat;z-index:9999;filter:drop-shadow(0 18px 24px rgba(0,0,0,.3));
+  animation:splashSpin 2s cubic-bezier(.15,.75,.25,1) both}
+html.splash-out::before{opacity:0}
+html.splash-out::after{animation:splashOut .5s ease-in both}
+@keyframes splashOut{from{opacity:1;transform:translate(-50%,-50%) scale(1)}to{opacity:0;transform:translate(-50%,-50%) scale(.6)}}
+@keyframes splashSpin{
+  0%{opacity:0;transform:translate(-50%,-50%) perspective(900px) rotateY(720deg) rotateX(360deg) scale(.15)}
+  15%{opacity:1}
+  70%{transform:translate(-50%,-50%) perspective(900px) rotateY(0) rotateX(0) scale(1)}
+  80%{transform:translate(-50%,-50%) perspective(900px) scale(1.08)}
+  90%{transform:translate(-50%,-50%) perspective(900px) scale(1)}
+  100%{opacity:1;transform:translate(-50%,-50%) perspective(900px) scale(1)}}
