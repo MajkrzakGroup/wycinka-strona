@@ -458,3 +458,133 @@ input[type=range]{width:100%;margin:18px 0 4px;accent-color:var(--green)}
   .reviews-badge{display:inline-block;margin-top:22px;font-size:16px;color:#222;background:#fff;padding:10px 18px;border-radius:30px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
   .reviews-badge .stars{color:#f5b301;letter-spacing:2px}
   @media(max-width:800px){.steps3-grid{grid-template-columns:1fr}.steps3 h2{font-size:24px}}
+
+/* ===== Logo w nagłówku: obrót co 3 s, w przerwie wersja 3D ===== */
+  .logo{perspective:700px}
+  .lg-anim{position:relative;display:inline-block;transform-style:preserve-3d;animation:lgSpin 4s ease-in-out infinite}
+  .lg-anim img{display:block}
+  .lg-anim .lg-3d{position:absolute;left:0;top:0;opacity:0;animation:lg3d 4s linear infinite}
+  @keyframes lgSpin{0%{transform:rotateY(0)}25%{transform:rotateY(360deg)}100%{transform:rotateY(360deg)}}
+  @keyframes lg3d{0%,24%{opacity:0}34%,94%{opacity:1}100%{opacity:0}}
+  @media (prefers-reduced-motion:reduce){.lg-anim,.lg-anim .lg-3d{animation:none}.lg-anim .lg-3d{opacity:1}}
+  .lg-anim img{filter:drop-shadow(0 4px 6px rgba(0,0,0,.28))}
+  .lg-anim .lg-3d{opacity:1;animation:none}  .lg-anim img:first-child{visibility:hidden}  /* cały czas wersja 3D, także w obrocie */
+
+/* ===== Pulsujący telefon w prawym górnym rogu ===== */
+  .head-contact a[href^="tel"]{font-size:19px;font-weight:700;letter-spacing:.5px;color:#0c9a24;display:inline-block;
+    -webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;
+    text-shadow:1px 1px 0 #06601a,2px 3px 4px rgba(0,0,0,.28);
+    animation:telPuls 1.8s ease-in-out infinite}
+  .head-contact a[href^="tel"]:hover{color:#10b02b}
+  @keyframes telPuls{0%,100%{filter:brightness(1)}50%{filter:brightness(1.35)}}
+  @media (max-width:960px){.head-contact{display:flex}.head-contact span,.head-contact a[href^="mailto"]{display:none}.head-contact a[href^="tel"]{font-size:16px}}
+  @media (prefers-reduced-motion:reduce){.head-contact a[href^="tel"]{animation:none}}
+
+/* ===== Zakładki menu – delikatne 3D ===== */
+  nav a{text-shadow:0 1px 1px rgba(0,0,0,.12);border-bottom:2px solid transparent}
+  nav a:hover{background:linear-gradient(#fff,#eef5ef);box-shadow:0 2px 4px rgba(0,0,0,.12),inset 0 1px 0 #fff;transform:translateY(-1px)}
+  nav a.active{background:linear-gradient(#12a52a,#087a1b);color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.35);
+    box-shadow:0 3px 6px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.35);border-bottom-color:#05600f}
+
+/* ===== Ukośne ścięcie zdjęć (styl jak na przykładzie) ===== */
+  #start{position:relative;background:#fff}
+  #start::before{content:"";position:absolute;left:0;right:0;top:0;height:580px;background:#d9dcda;
+    clip-path:polygon(0 0,100% 0,100% 100%,0 92%);z-index:0}
+  .slider{height:580px;clip-path:polygon(0 0,100% 0,100% 100%,0 78%);z-index:1}
+  .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.25) 45%,rgba(0,0,0,0) 70%)}
+  .slide-box{z-index:2;top:70px;bottom:auto;left:max(20px,calc(50% - 560px));transform:none;width:min(560px,calc(100% - 40px));
+    background:none;border:none;padding:0;display:block;color:#fff}
+  .slide-box h2{color:#fff;font-size:44px;line-height:1.1;text-shadow:0 3px 10px rgba(0,0,0,.55);margin-bottom:12px}
+  .slide-box p{color:#f1f1f1;font-size:16px;text-shadow:0 2px 6px rgba(0,0,0,.6);margin-bottom:22px}
+  .slide-box .cta-pair{justify-content:flex-start}
+  .dots{position:relative;z-index:2;margin-top:-10px}
+  .page-head{clip-path:polygon(0 0,100% 0,100% 100%,0 82%);border-bottom:none;padding-bottom:80px}
+  @media (max-width:960px){.slide-box h2{font-size:32px}}
+  @media (max-width:600px){
+    #start::before{height:520px;clip-path:polygon(0 0,100% 0,100% 100%,0 95%)}
+    .slider{height:520px;clip-path:polygon(0 0,100% 0,100% 100%,0 86%)}
+    .slide-box{top:30px;left:16px;width:calc(100% - 32px)}
+    .slide-box h2{font-size:27px}.slide-box p{font-size:14px;margin-bottom:14px}
+    .slide::after{background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.25) 55%,rgba(0,0,0,0) 80%)}
+    .page-head{clip-path:polygon(0 0,100% 0,100% 100%,0 90%);padding-bottom:56px}
+  }
+  .slide-box p{text-shadow:1px 1px 0 rgba(0,0,0,.45),2px 3px 6px rgba(0,0,0,.6)}  .slide-box .btn{box-shadow:0 4px 0 rgba(0,0,0,.28),0 8px 16px rgba(0,0,0,.35);text-shadow:0 1px 1px rgba(0,0,0,.25)}  .slide-box .btn:hover{transform:translateY(-2px)}
+  .slide-box h2,.page-head h1{text-shadow:2px 3px 5px rgba(0,0,0,.5)}  /* lekki cień napisów */
+  .btn-yellow{background:linear-gradient(#ffd54a,#f0ac00);color:#1d1d1b;border-radius:5px;text-shadow:0 1px 0 rgba(255,255,255,.45);
+    box-shadow:0 3px 6px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.55);border-bottom:2px solid #b98400}
+  .btn-yellow:hover{background:linear-gradient(#ffdf70,#f6b70d);transform:translateY(-1px)}
+  .btn-sms{background:linear-gradient(#4b514d,#262a28);color:#fff;border-radius:5px;text-shadow:0 1px 1px rgba(0,0,0,.4);
+    box-shadow:0 3px 6px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.18);border-bottom:2px solid #151816}
+  .btn-sms:hover{background:linear-gradient(#59605b,#2e3330);transform:translateY(-1px)}
+  .btn-sms{background:linear-gradient(#12a52a,#087a1b);border-bottom-color:#05600f;box-shadow:0 3px 6px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.35)}  .btn-sms:hover{background:linear-gradient(#16b530,#098a1e)}  /* SMS na zielono */
+  .intro h1{font-family:"Oswald",Poppins,sans-serif;font-weight:700;font-size:44px;letter-spacing:1px;text-transform:uppercase;color:#1d1d1b;text-shadow:1px 1px 0 #c9cdca,2px 3px 4px rgba(0,0,0,.22)}  .intro h1 span{font-weight:500;font-size:28px;letter-spacing:2px;margin-top:4px;text-shadow:1px 1px 0 #06601a,2px 3px 4px rgba(0,0,0,.25)}  @media (max-width:600px){.intro h1{font-size:32px}.intro h1 span{font-size:20px}}
+  @media (min-width:601px){.slide-box .btn-big{font-size:15px;padding:11px 22px}}  /* mniejsze przyciski na zdjęciu (komputer) */
+/* ===== Przyciski w opisie firmy – jak zakładki menu ===== */
+  .intro .cta-pair{justify-content:center}
+  .intro .btn,.intro .btn.btn-yellow,.intro .btn.btn-sms,.intro .btn:not(.btn-yellow):not(.btn-outline):not(.btn-sms){
+    background:linear-gradient(#fff,#eef5ef);color:var(--green);border:none;border-bottom:none;border-radius:4px;
+    box-shadow:0 2px 4px rgba(0,0,0,.12),inset 0 1px 0 #fff;text-shadow:0 1px 1px rgba(0,0,0,.12);font-weight:600;font-size:15px;padding:10px 20px}
+  .intro .btn:hover,.intro .btn.btn-yellow:hover,.intro .btn.btn-sms:hover,.intro .btn:not(.btn-yellow):not(.btn-outline):not(.btn-sms):hover{
+    background:linear-gradient(#12a52a,#087a1b);color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.35);transform:translateY(-1px)}
+/* ===== Przyciski w „Wycena w 3 krokach” – jak zakładki menu ===== */
+  #wycena .cta-center .btn{background:linear-gradient(#fff,#eef5ef);color:var(--green);border:none;border-radius:4px;
+    box-shadow:0 2px 4px rgba(0,0,0,.12),inset 0 1px 0 #fff;text-shadow:0 1px 1px rgba(0,0,0,.12);font-weight:600;font-size:15px;padding:10px 20px}
+  #wycena .cta-center .btn:hover{background:linear-gradient(#12a52a,#087a1b);color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.35);transform:translateY(-1px)}
+  .intro{padding-bottom:40px}  .intro p:last-of-type{margin-bottom:0}
+  .wa-ic{width:20px;height:20px;vertical-align:-4px;margin-right:4px;display:inline-block}
+/* ===== Przyciski w „Wycena w 3 krokach” – 3D (jak klawisze) ===== */
+  #wycena .cta-center .btn{background:linear-gradient(#ffffff,#e6efe8);border:1px solid #d5ddd7;border-bottom:4px solid #b9c6bc;border-radius:8px;
+    box-shadow:0 6px 12px rgba(0,0,0,.14),inset 0 2px 0 #fff;text-shadow:0 1px 0 #fff;transition:transform .15s,box-shadow .15s}
+  #wycena .cta-center .btn:hover{background:linear-gradient(#12a52a,#087a1b);border-color:#087a1b;border-bottom-color:#05600f;color:#fff;
+    text-shadow:0 1px 1px rgba(0,0,0,.35);transform:translateY(-2px);box-shadow:0 10px 16px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.3)}
+  #wycena .cta-center .btn:active{transform:translateY(2px);border-bottom-width:2px;box-shadow:0 3px 6px rgba(0,0,0,.15)}
+/* ===== WSZYSTKIE przyciski na stronie – 3D jak klawisze (menu bez zmian) ===== */
+  html body .btn,html body .btn.btn-yellow,html body .btn.btn-sms,html body .btn.btn-outline,html body .btn.btn-wa{
+    background:linear-gradient(#ffffff,#e6efe8);color:var(--green);border:1px solid #d5ddd7;border-bottom:4px solid #b9c6bc;border-radius:8px;
+    box-shadow:0 6px 12px rgba(0,0,0,.14),inset 0 2px 0 #fff;text-shadow:0 1px 0 #fff;font-weight:600;transition:transform .15s,box-shadow .15s}
+  html body .btn:hover,html body .btn.btn-yellow:hover,html body .btn.btn-sms:hover,html body .btn.btn-outline:hover,html body .btn.btn-wa:hover{
+    background:linear-gradient(#12a52a,#087a1b);border-color:#087a1b;border-bottom-color:#05600f;color:#fff;
+    text-shadow:0 1px 1px rgba(0,0,0,.35);transform:translateY(-2px);box-shadow:0 10px 16px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.3)}
+  html body .btn:active{transform:translateY(2px);border-bottom-width:2px;box-shadow:0 3px 6px rgba(0,0,0,.15)}
+  .tile{display:flex;flex-direction:column}  .tile h3{white-space:nowrap;font-size:22px}  .tile .btn{align-self:flex-start;margin-top:auto}  @media (max-width:1100px){.tile h3{font-size:19px}}  /* tytuły kafelków w jednej linii, przyciski równo */
+  .foot-logo{background:none;padding:0;border-radius:0;width:120px;height:120px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.35))}
+
+/* motto – plakietki 3D */
+.motto span{background:linear-gradient(#3a3a3a,#161616);border:1px solid #111;border-bottom:4px solid #000;border-radius:8px;box-shadow:0 6px 12px rgba(0,0,0,.22),inset 0 2px 0 rgba(255,255,255,.18);text-shadow:0 1px 1px rgba(0,0,0,.6);transition:transform .15s}
+.motto span:nth-child(odd){background:linear-gradient(#14b02e,#087a1b);border-color:#06661a;border-bottom-color:#04501a}
+.motto span:hover{transform:translateY(-2px)}
+
+/* O nas – nagłówek ze zdjęciem ścięty ukośnie jak na stronie głównej */
+.ph-wrap{position:relative;background:#fff}
+.ph-wrap::before{content:"";position:absolute;inset:0;background:#d9dcda;clip-path:polygon(0 0,100% 0,100% 100%,0 90%)}
+.ph-wrap .page-head.ph-foto{position:relative;z-index:1;background-size:cover;min-height:460px;padding:80px 0 150px;clip-path:polygon(0 0,100% 0,100% 100%,0 76%)}
+.ph-foto h1{font-size:44px;line-height:1.1}
+.ph-foto p{font-size:17px;text-shadow:1px 1px 0 rgba(0,0,0,.45),2px 3px 6px rgba(0,0,0,.6)}
+@media (max-width:600px){
+  .ph-wrap::before{clip-path:polygon(0 0,100% 0,100% 100%,0 95%)}
+  .ph-wrap .page-head.ph-foto{min-height:360px;padding:40px 0 90px;clip-path:polygon(0 0,100% 0,100% 100%,0 86%)}
+  .ph-foto h1{font-size:30px}
+}
+.ph-wrap + section{padding-top:24px!important}.ph-wrap + section .since{margin-top:0}
+body>.ph-wrap{max-width:1080px;margin-left:auto;margin-right:auto;box-shadow:0 0 30px rgba(0,0,0,.07)}
+/* miasta – zakładki 3D jak przyciski */
+.city-links a{background:linear-gradient(#ffffff,#e6efe8);color:var(--green);border:1px solid #d5ddd7;border-bottom:4px solid #b9c6bc;border-radius:8px;box-shadow:0 5px 10px rgba(0,0,0,.12),inset 0 2px 0 #fff;text-shadow:0 1px 0 #fff;transition:transform .15s,box-shadow .15s}
+.city-links a:hover{background:linear-gradient(#12a52a,#087a1b);color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.35);border-color:#087a1b;border-bottom-color:#05600f;transform:translateY(-2px)}
+.city-links a:active{transform:translateY(2px);border-bottom-width:2px}
+.note-op{font-size:18px;padding:24px 26px;gap:18px;line-height:1.5}
+.note-op>span{font-size:44px!important}
+@media (max-width:600px){.note-op{font-size:16px;padding:18px}.note-op>span{font-size:34px!important}}
+/* frezarki – ładny napis w ramce combo */
+.note-combo{display:block;padding:24px 28px}
+.combo-h{display:block;font-family:"Oswald",sans-serif;font-weight:700;font-size:25px;line-height:1.15;text-transform:uppercase;letter-spacing:.5px;color:var(--black);text-shadow:1px 1px 0 #fff,2px 3px 4px rgba(0,0,0,.18)}
+.combo-h span{color:var(--green)}
+.note-combo p{margin:8px 0 0;font-size:17px;color:#444}
+@media (max-width:600px){.combo-h{font-size:23px}.note-combo p{font-size:15px}}
+/* frezarki – zdjęcie z realizacji */
+.frez-foto{margin:24px 0 0}
+.frez-foto img{width:100%;height:440px;object-fit:cover;object-position:center 60%;border-radius:10px;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.frez-foto figcaption{font-size:13px;color:#666;margin-top:8px}
+@media (max-width:600px){.frez-foto img{height:340px}}
+/* .where – plakietki 3D jak przyciski */
+.where span{background:linear-gradient(#ffffff,#e6efe8);color:var(--green);border:1px solid #d5ddd7;border-bottom:4px solid #b9c6bc;border-radius:8px;box-shadow:0 5px 10px rgba(0,0,0,.12),inset 0 2px 0 #fff;text-shadow:0 1px 0 #fff}
+.foot-menu{border-bottom:none}

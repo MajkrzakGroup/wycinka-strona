@@ -17,7 +17,7 @@
 <!-- ================= NAGŁÓWEK ================= -->
 <header id="top">
   <div class="container head">
-    <a href="index.html" class="logo"><img src="logo.webp" alt="Majkrzak Group – logo"></a>
+    <a href="index.html" class="logo"><span class="lg-anim"><img src="logo-plaskie.webp" alt="Majkrzak Group – logo"><img src="logo-3d.webp" class="lg-3d" alt=""></span></a>
     <div class="head-right">
       <div class="head-contact">
         <span>Kontakt:</span>
@@ -41,13 +41,13 @@
 </header>
 
 <!-- ================= TYTUŁ PODSTRONY ================= -->
-<section class="page-head" style="background-image:linear-gradient(rgba(20,25,22,.72),rgba(20,25,22,.72)),url('galeria-arborysta.webp');background-position:center 40%;padding-bottom:100px">
+<div class="ph-wrap"><section class="page-head ph-foto" style="background-image:linear-gradient(100deg,rgba(0,0,0,.66) 0%,rgba(0,0,0,.3) 45%,rgba(0,0,0,.05) 75%),url('galeria-arborysta.webp');background-position:center 40%">
   <div class="container">
     <div class="crumbs"><a href="index.html">Strona główna</a> &nbsp;›&nbsp; O nas</div>
     <h1>Poznaj Majkrzak Group</h1>
     <p>Zgrany zespół ludzi, którzy lubią swoją pracę – nawet gdy wykonują ją kilkadziesiąt metrów nad ziemią.</p>
   </div>
-</section>
+</section></div>
 
 <!-- ================= LICZNIKI ================= -->
 <section style="padding:0 0 20px">
@@ -68,9 +68,6 @@
       <p class="lead" style="margin-bottom:16px">Majkrzak Group działa na rynku od <strong>10 września 2020 roku</strong>. Firmę założyliśmy z prostym celem: wykonywać trudne prace przy drzewach i na wysokości tak, jak sami chcielibyśmy, żeby wykonano je u nas – bezpiecznie, starannie i bez zbędnych formalności.</p>
       <p style="margin-bottom:14px">Tworzymy zespół doświadczonych ludzi, którzy znają swój fach od podszewki. Pracowaliśmy przy pojedynczych drzewach w przydomowych ogrodach, ale też przy wymagających zleceniach – tuż przy budynkach, nad drogami i w pobliżu linii energetycznych. Każde takie zlecenie to kolejna porcja doświadczenia, które dziś procentuje u naszych klientów.</p>
       <p>Pracujemy na własnym sprzęcie. Dysponujemy podnośnikiem koszowym 27 m i dwiema frezarkami do pni, dlatego sami planujemy terminy i nie jesteśmy zależni od innych firm. Dzięki temu możemy zrobić całe zlecenie od A do Z – od wycinki, przez uprzątnięcie gałęzi, po usunięcie pnia.</p>
-      <div class="motto">
-        <span>Doświadczenie</span><span>Bezpieczeństwo</span><span>Własny sprzęt</span><span>Terminowość</span>
-      </div>
     </div>
     <div class="team-photo" style="background-image:url('galeria/wycinka-drzew-podnosnik-kosz.webp');background-position:center 60%">
       <div class="stamp">od 10.09.2020<small>działamy dla Was</small></div>
@@ -110,38 +107,6 @@
   </div>
 </section>
 
-<!-- ================= HISTORIA ================= -->
-<section class="sec">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:34px">
-      <span class="pill">Nasza droga</span>
-      <h2>Jak <span>się rozwijamy</span></h2>
-    </div>
-    <div class="timeline">
-      <div class="tl">
-        <div class="when">10 września 2020</div>
-        <h4>Start Majkrzak Group</h4>
-        <p>Rejestrujemy firmę i zaczynamy od tego, co znamy najlepiej – wycinki i pielęgnacji drzew.</p>
-      </div>
-      <div class="tl">
-        <div class="when">Kolejne lata</div>
-        <h4>Coraz trudniejsze zlecenia</h4>
-        <p>Rozwijamy techniki alpinistyczne i wycinkę sekcyjną. Pracujemy przy budynkach, drogach i liniach energetycznych.</p>
-      </div>
-      <div class="tl">
-        <div class="when">Rozbudowa parku maszyn</div>
-        <h4>Własny podnośnik i frezarki</h4>
-        <p>Do floty dołączają podnośnik koszowy Ruthmann TB 270 o wysokości roboczej 27 m oraz frezarki do pni LASKI.</p>
-      </div>
-      <div class="tl">
-        <div class="when">Dziś</div>
-        <h4>Kompleksowa obsługa dwóch województw</h4>
-        <p>Działamy na terenie całego Dolnego Śląska i Opolszczyzny – od wycinki i pracy na wysokości po frezowanie pni i uporządkowanie terenu.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= BANER ================= -->
 <section class="parallax">
   <div class="container">
@@ -168,7 +133,7 @@
   </div>
   <div class="container foot-cols">
     <div>
-      <img src="logo.webp" alt="Majkrzak Group" class="foot-logo">
+      <img src="logo-3d.webp" alt="Majkrzak Group" class="foot-logo">
       <h4>Majkrzak Group</h4>
       <p>Wycinka i pielęgnacja drzew<br>Frezowanie pni i wynajem frezarek</p>
       <p style="margin-top:10px">📍 Rudnica 43<br>58-260 Bielawa</p>
@@ -231,5 +196,6 @@
     toTop.classList.toggle('show', scrollY > 500);
   });
 </script>
+<script>if("scrollRestoration" in history)history.scrollRestoration="manual";if(!location.hash){window.scrollTo(0,0);addEventListener("load",function(){window.scrollTo(0,0)})}</script>
 </body>
 </html>
